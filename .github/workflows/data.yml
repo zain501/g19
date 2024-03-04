@@ -1,5 +1,4 @@
 name: workflow for data
-
 on:
   schedule:
     - cron: '0 */3 * * *' # Run every 3 hours
