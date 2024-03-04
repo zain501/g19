@@ -1,4 +1,4 @@
-name: workflow for Task3.2
+name: workflow for data
 
 on:
 #  schedule:
