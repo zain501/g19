@@ -32,8 +32,8 @@ jobs:
           Rscript R/loaddata.R
       - name: Add files
         run: |
-          git config --global user.email "zain.abidin@warwick.ac.uk"
-          git config --global user.name "zain501"
+          git config --global user.email "ben.wong@warwick.ac.uk"
+          git config --global user.name "benckwong"
           git add --all figures/
       - name: Commit files
         run: |
@@ -41,5 +41,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
-            github_token: ${{ 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 }}
+            github_token: ${{ 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 }}
             branch: main
