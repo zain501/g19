@@ -10,36 +10,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+       name: Checkout code
         uses: actions/checkout@v2
-      - name: Setup R environment
+       name: Setup R environment
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.3.2'
-      - name: Cache R packages
+       name: Cache R packages
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ hashFiles('**/lockfile') }}
           restore-keys: |
             ${{ runner.os }}-r-
-      - name: Install packages
+       name: Install packages
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           Rscript -e 'install.packages(c("ggplot2"))'
-      - name: Execute R script
+       name: Execute R script
         run: |
           Rscript R/loaddata.R
-      - name: Add files
+       name: Add files
         run: |
           git config --global user.email "ben.wong@warwick.ac.uk"
           git config --global user.name "benckwong"
           git add --all figures/
-      - name: Commit files
+       name: Commit files
         run: |
           git commit -m "Add regression plot figure"
-      - name: Push changes
+       name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
             github_token: ${{ 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 }}
-            branch: main
+            branches: 
+              - main
